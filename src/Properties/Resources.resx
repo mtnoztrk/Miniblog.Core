@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="About" xml:space="preserve">
+    <value>About</value>
+  </data>
   <data name="BadRequestTheRequestCannotBeFulfilledDueToBadSyntax" xml:space="preserve">
     <value>Bad request: The request cannot be fulfilled due to bad syntax</value>
   </data>
@@ -125,6 +128,9 @@
   </data>
   <data name="Forbidden" xml:space="preserve">
     <value>Forbidden</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Home</value>
   </data>
   <data name="InternalServerErrorServerWasUnableToFinishProcessingTheRequest" xml:space="preserve">
     <value>Internal Server Error - server was unable to finish processing the request</value>

@@ -1,7 +1,7 @@
 {
-  "name": "Miniblog.Core",
-  "short_name": "Miniblog.Core",
-  "description": "A short description of the blog.",
+  "name": "metin.dev",
+  "short_name": "metin.dev",
+  "description": "Software blog.",
   "icons": [
     {
       "src": "/img/icon192x192.png",

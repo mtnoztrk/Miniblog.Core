@@ -61,6 +61,15 @@ namespace Miniblog.Core.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to About.
+        /// </summary>
+        public static string About {
+            get {
+                return ResourceManager.GetString("About", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Bad request: The request cannot be fulfilled due to bad syntax.
         /// </summary>
         public static string BadRequestTheRequestCannotBeFulfilledDueToBadSyntax {
@@ -84,6 +93,15 @@ namespace Miniblog.Core.Properties {
         public static string Forbidden {
             get {
                 return ResourceManager.GetString("Forbidden", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Home.
+        /// </summary>
+        public static string Home {
+            get {
+                return ResourceManager.GetString("Home", resourceCulture);
             }
         }
         
