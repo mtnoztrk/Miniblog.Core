@@ -1,63 +1,74 @@
 @inject IOptionsSnapshot<BlogSettings> settings
 @inject WebManifest manifest
 @{
-    var host = $"{Context.Request.Scheme}://{Context.Request.Host}";
+	var host = $"{Context.Request.Scheme}://{Context.Request.Host}";
 }
 <!DOCTYPE html>
 <html lang="en">
 <head prefix="og:http://ogp.me/ns#">
-    <meta charset="utf-8" />
-    <title>@ViewData[Constants.Title]</title>
-    <meta name="description" content="@ViewData[Constants.Description]" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta charset="utf-8" />
+	<title>@ViewData[Constants.Title]</title>
+	<meta name="description" content="@ViewData[Constants.Description]" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="preload" href="~/js/site.js" as="script" />
-    <link rel="preload" href="~/css/belowthefold.scss" as="style" />
-    <noscript><link rel="stylesheet" href="~/css/belowthefold.scss" /></noscript>
-    @RenderSection(Constants.Preload, required: false)
-    <link rel="stylesheet" href="~/css/abovethefold.scss" inline />
+	<link rel="preload" href="~/js/site.js" as="script" />
+	<link rel="preload" href="~/css/belowthefold.scss" as="style" />
+	<noscript><link rel="stylesheet" href="~/css/belowthefold.scss" /></noscript>
+	@RenderSection(Constants.Preload, required: false)
+	<link rel="stylesheet" href="~/css/abovethefold.scss" inline />
 
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content="@ViewData[Constants.Title]" />
-    <meta property="og:description" content="@ViewData[Constants.Description]" />
-    <meta property="og:url" content="@(host + Context.Request.Path)" />
-    <meta property="og:image" content="@host/img/icon512x512.png" />
-    <meta property="og:image:width" content="512" />
-    <meta property="og:image:height" content="512" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="@ViewData[Constants.Title]" />
+	<meta property="og:description" content="@ViewData[Constants.Description]" />
+	<meta property="og:url" content="@(host + Context.Request.Path)" />
+	<meta property="og:image" content="@host/img/icon512x512.png" />
+	<meta property="og:image:width" content="512" />
+	<meta property="og:image:height" content="512" />
 
-    <meta name="msapplication-square150x150logo" content="~/img/icon180x180.png" />
+	<meta name="msapplication-square150x150logo" content="~/img/icon180x180.png" />
 
-    <link rel="icon" type="image/png" sizes="16x16" href="~/img/icon16x16.png" />
-    <link rel="apple-touch-icon" href="~/img/icon180x180.png" />
-    <link rel="shortcut icon" href="~/img/icon16x16.png" />
+	<link rel="icon" type="image/png" sizes="16x16" href="~/img/icon16x16.png" />
+	<link rel="apple-touch-icon" href="~/img/icon180x180.png" />
+	<link rel="shortcut icon" href="~/img/icon16x16.png" />
 
-    <link rel="edituri" type="application/rsd+xml" title="RSD" href="~/rsd.xml" />
-    <link rel="alternate" type="application/rss+xml" href="~/feed/rss/" title="@ViewData[Constants.Title]" />
-    <link rel="alternate" type="application/atom+xml" href="~/feed/atom/" title="@ViewData[Constants.Title]" />
-    @RenderSection(Constants.Head, required: false)
+	<link rel="edituri" type="application/rsd+xml" title="RSD" href="~/rsd.xml" />
+	<link rel="alternate" type="application/rss+xml" href="~/feed/rss/" title="@ViewData[Constants.Title]" />
+	<link rel="alternate" type="application/atom+xml" href="~/feed/atom/" title="@ViewData[Constants.Title]" />
+	@RenderSection(Constants.Head, required: false)
 
-    <meta name="application-name" content="@ViewData[Constants.Title]" />
-    <meta name="msapplication-TileColor" content="#ffffff" />
+	<meta name="application-name" content="@ViewData[Constants.Title]" />
+	<meta name="msapplication-TileColor" content="#ffffff" />
+	@*<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'
+		type='text/css' />*@
 </head>
 <body itemscope itemtype="http://schema.org/WebPage">
 
-    <header class="siteheader">
-        <div class="container">
-            <p itemprop="name"><a href="~/" itemprop="url">@manifest.Name</a></p>
-            <span itemprop="author">@settings.Value.SubTitle</span>
-        </div>
-    </header>
+	<header class="siteheader">
+		<div class="container header-grid">
+			<div class="header-text">
+				<div>
+					<p itemprop="name"><a href="~/" itemprop="url">@manifest.Name</a></p>
+				</div>
+				<div>
+					<span itemprop="subtitle">@settings.Value.SubTitle</span>
+				</div>
+			</div>
+			<div class="header-image">
+				<img src="~/img/metin.jpg" />
+			</div>
+		</div>
+	</header>
 
-    <main itemprop="mainEntity" itemscope itemtype="http://schema.org/Blog" role="main">
-        <noscript>
-            <p class="container">@Miniblog.Core.Properties.Resources.SomeFeaturesOfThisWebsiteDoNotWorkAsExpectedWhenJavaScriptIsDisabled</p>
-        </noscript>
-        @RenderBody()
-    </main>
+	<main itemprop="mainEntity" itemscope itemtype="http://schema.org/Blog" role="main">
+		<noscript>
+			<p class="container">@Miniblog.Core.Properties.Resources.SomeFeaturesOfThisWebsiteDoNotWorkAsExpectedWhenJavaScriptIsDisabled</p>
+		</noscript>
+		@RenderBody()
+	</main>
 
-    <footer class="sitefooter">
-        <div class="container">
-            <nav>
+	<footer class="sitefooter">
+		<div class="container">
+			<nav>
 				<ul>
 					<li><a href="~/" title="@Miniblog.Core.Properties.Resources.Home">@Miniblog.Core.Properties.Resources.Home</a></li>
 					<li><a href="~/about/" title="@Miniblog.Core.Properties.Resources.About">@Miniblog.Core.Properties.Resources.About</a></li>
@@ -74,18 +85,18 @@
 						}
 					}
 				</ul>
-            </nav>
-            <p>
-                @Miniblog.Core.Properties.Resources.PoweredBy <a href="https://github.com/madskristensen/Miniblog.Core" rel="noopener noreferrer" target="_blank">@Miniblog.Core.Properties.Resources.MiniblogCore</a>
-            </p>
-        </div>
-    </footer>
+			</nav>
+			<p>
+				@Miniblog.Core.Properties.Resources.PoweredBy <a href="https://github.com/madskristensen/Miniblog.Core" rel="noopener noreferrer" target="_blank">@Miniblog.Core.Properties.Resources.MiniblogCore</a>
+			</p>
+		</div>
+	</footer>
 
-    @* This lazy loads the stylesheet in a non-render blocking way *@
-    <link rel="preload" href="~/css/belowthefold.scss" as="style" />
-    <noscript><link rel="stylesheet" href="~/css/belowthefold.scss" /></noscript>
+	@* This lazy loads the stylesheet in a non-render blocking way *@
+	<link rel="preload" href="~/css/belowthefold.scss" as="style" />
+	<noscript><link rel="stylesheet" href="~/css/belowthefold.scss" /></noscript>
 
-    <script src="~/js/site.js" async defer></script>
-    @RenderSection(Constants.Scripts, required: false)
+	<script src="~/js/site.js" async defer></script>
+	@RenderSection(Constants.Scripts, required: false)
 </body>
 </html>
