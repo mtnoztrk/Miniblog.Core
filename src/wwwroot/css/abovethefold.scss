@@ -201,7 +201,7 @@ time {
     }
 }
 
-.header-grid {
+.header-container {
     display: flex;
 }
 
@@ -241,4 +241,19 @@ img {
 
 .about-me-signature {
     text-align: right;
+}
+
+.about-me-header-container {
+    display: flex;
+    align-items: center;
+}
+
+.about-me-text {
+    flex-grow: 1;
+}
+
+.about-me-icon {
+    height: 2rem;
+    width: 2rem;
+    margin-left: 1rem;
 }
