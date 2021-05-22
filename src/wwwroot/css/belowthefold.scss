@@ -143,10 +143,8 @@ noscript p {
     }
 
     p {
-        position: absolute;
         bottom: .5em;
         left: 0;
-        text-align: center;
         width: 100%;
         font-size: .9em;
     }
@@ -195,4 +193,18 @@ noscript p {
     a[href^="http"]:after, a[href^="//"]:after {
         content: " <" attr(href) "> ";
     }
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 3rem;
+}
+
+.footer-copyright {
+    text-align: left !important;
+}
+
+.footer-powered-by {
+    text-align: right !important;
 }
