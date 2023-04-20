@@ -4,6 +4,7 @@ namespace Miniblog.Core
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Http;
+    using Microsoft.AspNetCore.Rewrite;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.DependencyInjection.Extensions;
@@ -13,13 +14,13 @@ namespace Miniblog.Core
 
     using WebEssentials.AspNetCore.OutputCaching;
 
-    using WebMarkupMin.AspNetCore2;
+    using WebMarkupMin.AspNetCore7;
     using WebMarkupMin.Core;
 
     using WilderMinds.MetaWeblog;
 
     using IWmmLogger = WebMarkupMin.Core.Loggers.ILogger;
-    using MetaWeblogService = Miniblog.Core.Services.MetaWeblogService;
+    using MetaWeblogService = Services.MetaWeblogService;
     using WmmNullLogger = WebMarkupMin.Core.Loggers.NullLogger;
 
     public class Startup
@@ -45,7 +46,6 @@ namespace Miniblog.Core
         {
             if (env.IsDevelopment())
             {
-                app.UseBrowserLink();
                 app.UseDeveloperExceptionPage();
             }
             else
@@ -69,6 +69,11 @@ namespace Miniblog.Core
             if (this.Configuration.GetValue<bool>("forcessl"))
             {
                 app.UseHttpsRedirection();
+            }
+
+            if (this.Configuration.GetValue<bool>("forceWwwPrefix"))
+            {
+                app.UseRewriter(new RewriteOptions().AddRedirectToWwwPermanent());
             }
 
             app.UseMetaWeblog("/metaweblog");
